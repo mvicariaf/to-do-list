@@ -12,7 +12,9 @@ window.onload = function() {
   
   var clearButton = document.getElementById('clear-button');
   clearButton.addEventListener('click', clearList, false);
- 
+
+  var clearDoneButton = document.getElementById('clear-done-button');
+  clearDoneButton.addEventListener('click', clearDone, false);
   
 
 
@@ -43,7 +45,13 @@ window.onload = function() {
       orderList.removeChild(orderList.firstChild); //borra el primer hijo
     }
   }
-
+  function clearDone (){
+    var doneTask = document.getElementsByClassName ('done');
+    //borrar los hijos que tenga la clase done pero
+    while(doneTask.length > 0){
+      doneTask[0].parentNode.removeChild(doneTask[0]);//te "situa" en el padre y borra el hijo que esta en el indice 0
+    }
+  }
 }
   
   
