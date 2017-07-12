@@ -16,21 +16,20 @@ window.onload = function() {
   var clearDoneButton = document.getElementById('clear-done-button');
   clearDoneButton.addEventListener('click', clearDone, false);
   
-
+  var taskList = document.getElementById('taskList'); //guarda el nodo con la id tasklist
 
   function addToDoItem() {
     event.preventDefault(); //evita que al pulsar intro para añadir se recargue la página
 
-    orderList = document.getElementById('taskList'); //guarda el nodo con la id tasklist
-    list = document.createElement ('li'); //variable que crea un li
+    var list = document.createElement ('li'); //variable que crea un li
     list.setAttribute('class', 'listElement') //añadimos la clase al li
-    orderList.append(list); //hacemos que el li que acabamos de crear cuelgue del ol
+    taskList.append(list); //hacemos que el li que acabamos de crear cuelgue del ol
     listItem = document.getElementById ('todo-input');  //guardamos el nodo del cuadro de texto
     var str = listItem.value;//guardamos el valor actual del cuadro de texto
     list.append(str); //colgamos el valor del cuadro del li
     listItem.value=""; //ponemos el valor del cuadro vacio de nuevo para comodidad del usuario
 
-    buttonNode= document.createElement('button'); //creamos el boton de "hecho" con su variable
+    var buttonNode= document.createElement('button'); //creamos el boton de "hecho" con su variable
 	  buttonNode.classList.add('done-button'); //le añadimos la clase "done-button" al botón que acabamos de crear
     buttonNode.append("Hecho") //esta línea añade el texto a la etiqueta botón
 	  list.append(buttonNode); //añade el botón al li
@@ -44,8 +43,8 @@ window.onload = function() {
   }
   
   function clearList (){ 
-    while (orderList.firstChild){ //bucle que se iterará siempre que la lista tenga un "primer hijo"
-      orderList.removeChild(orderList.firstChild); //borra el primer hijo
+    while (taskList.firstChild){ //bucle que se iterará siempre que la lista tenga un "primer hijo"
+      taskList.removeChild(taskList.firstChild); //borra el primer hijo
     }
   }
   function clearDone (){
@@ -57,32 +56,3 @@ window.onload = function() {
   }
 }
   
-  
-
-
-
-// window.onload = function() {
-//   //init();
-//   //ESCUCHAS DE BOTONES CUANDO HACEN CLICK EJECUTAN FUNCIÓN
-
-//   var saveButton = document.getElementById('add-button');
-//   saveButton.addEventListener('click', addToDoItem, false);
-
-//   //OTRAS ESCUCHAS DE BOTONES CUANDO HACEN CLICK EJECUTAN FUNCIÓN 
- 
-//   //doSomethingElse();
-//   // LAS FUNCIONES DE AÑADIR BORRAR .....
-//   function addToDoItem() {
-//     //LO QUE SEA
-//     console.log("ADD BUTTON CLICKED!");
-//   }
-
-//   function markAsDone() {
-//     //LO QUE SEA
-//     console.log("DONE BUTTON CLICKED!");
-//   }
-//  };
-
-
-
-
