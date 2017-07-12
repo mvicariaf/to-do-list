@@ -8,43 +8,45 @@ window.onload = function() {
 
   var saveButton = document.getElementById('save-button');
   saveButton.addEventListener('click', addToDoItem, false);
-  //doneButton = document.getElementsByClassName('done-button'); 
+
   
+  var clearButton = document.getElementById('clear-button');
+  clearButton.addEventListener('click', clearList, false);
+ 
   
 
 
   function addToDoItem() {
-    var orderList = document.getElementById('taskList');
-    list = document.createElement ('li');
-    list.setAttribute('class', 'listElement')
-    orderList.append(list);
-    listItem = document.getElementById ('todo-input');
-    var str = listItem.value;
-    list.append(str);
-    listItem.value="";
+    orderList = document.getElementById('taskList'); //guarda el nodo con la id tasklist
+    list = document.createElement ('li'); //variable que crea un li
+    list.setAttribute('class', 'listElement') //añadimos la clase al li
+    orderList.append(list); //hacemos que el li que acabamos de crear cuelgue del ol
+    listItem = document.getElementById ('todo-input');  //guardamos el nodo del cuadro de texto
+    var str = listItem.value;//guardamos el valor actual del cuadro de texto
+    list.append(str); //colgamos el valor del cuadro del li
+    listItem.value=""; //ponemos el valor del cuadro vacio de nuevo para comodidad del usuario
 
-    buttonNode= document.createElement('button');
-	  buttonNode.classList.add('done-button');
-    buttonNode.append("Hecho")
-	  list.append(buttonNode);
-    buttonNode.addEventListener('click', markAsDone(buttonNode), false);
-  }
-  
+    buttonNode= document.createElement('button'); //creamos el boton de "hecho" con su variable
+	  buttonNode.classList.add('done-button'); //le añadimos la clase "done-button" al botón que acabamos de crear
+    buttonNode.append("Hecho") //esta línea añade el texto a la etiqueta botón
+	  list.append(buttonNode); //añade el botón al li
+    buttonNode.addEventListener('click', markAsDone(buttonNode), false); //añade el eventListener al boton después de su creación
   }
   function markAsDone(button) {
-    console.log("he pulsado este boton")
-    button.onclick = function() {
+    button.onclick = function() { 
           button.parentNode.classList.toggle("done");
-      };
-
-    
+      }; 
   }
   
-    /*var doneButton = document.getElementsByClassName('done-button');  
-    for (var i = 0; i < doneButton.length; i++) {
-    doneButton[i].addEventListener('click', markAsDone, false);
-    };
-  */
+  function clearList (){ 
+    while (orderList.firstChild){ //bucle que se iterará siempre que la lista tenga un "primer hijo"
+      orderList.removeChild(orderList.firstChild); //borra el primer hijo
+    }
+  }
+
+}
+  
+  
 
 
 

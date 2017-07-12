@@ -9,10 +9,9 @@ h1 {
 
 .todo-list, .done-list {
   background-color: #E4E5E7;
-  width: 40%;
-  margin: 3%;
+  width: 80%;
+  margin: 0 auto;
   padding: 20px;
-  float: left;
 }
 
 .form {
@@ -59,4 +58,12 @@ li {
 
 .done {
   text-decoration: line-through;
+}
+#clear-button {
+  background-color: black;
+  width: 60px;
+  height: 25px;
+  border-radius: 5px;
+  border-style: none;
+  color: white;
 }
