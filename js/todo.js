@@ -19,6 +19,8 @@ window.onload = function() {
 
 
   function addToDoItem() {
+    event.preventDefault(); //evita que al pulsar intro para añadir se recargue la página
+
     orderList = document.getElementById('taskList'); //guarda el nodo con la id tasklist
     list = document.createElement ('li'); //variable que crea un li
     list.setAttribute('class', 'listElement') //añadimos la clase al li
@@ -33,6 +35,7 @@ window.onload = function() {
     buttonNode.append("Hecho") //esta línea añade el texto a la etiqueta botón
 	  list.append(buttonNode); //añade el botón al li
     buttonNode.addEventListener('click', markAsDone(buttonNode), false); //añade el eventListener al boton después de su creación
+  
   }
   function markAsDone(button) {
     button.onclick = function() { 
